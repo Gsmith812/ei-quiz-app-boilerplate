@@ -1,1 +1,2 @@
-### Boilerplate app structure for Quiz App project
+### Technology Quiz App  
+This app consists of 5 multiple choice questions that take a user's input and returns a running score, until quiz is finished then the score is tallied and the option to restart the quiz is available.

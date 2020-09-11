@@ -261,9 +261,13 @@ function handleNextQuestionClick() {
 
 //This function will handle the restart the quiz button and reset the quiz to start over.
 function handleRestartQuizClick() {
-  $("main").on("click", "#restart-quiz")
-  event.preventDefault();
-
+  $("main").on("click", "#restart-quiz", (event) => {
+    event.preventDefault();
+    store.score = 0;
+    store.quizStarted = false;
+    store.questionNumber = 0;
+    renderQuizApp();
+  });
 }
 // This is the callback function for the app that initializes the script
 function handleQuizApp () {
