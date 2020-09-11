@@ -59,7 +59,8 @@ const store = {
   questionNumber: 0,
   score: 0,
   submittingAnswer: false,
-  isCorrect: false
+  isCorrect: false,
+  usersAnswer: ""
 };
 
 /**
@@ -157,7 +158,8 @@ function createSubmissionResultsPage() {
       <section class="submission-result">
         <form>
           <p>${correctAnswer} is correct!</p>
-          <p>Current Score: ${store.score}</p>
+          <p>Great Job!</p>
+          <p>Current Score: ${store.score} out of ${store.questions.length}</p>
           <button type="submit" id="next-question">Next</button>
         </form>
       </section>
@@ -167,9 +169,9 @@ function createSubmissionResultsPage() {
     return `
     <section class="submission-result">
       <form>
-        <p>That is incorrect!</p>
-        <p>The correct answer was ${correctAnswer}</p>
-        <p>Current Score: ${store.score}</p>
+        <p>${store.usersAnswer} is incorrect!</p>
+        <p>The correct answer was ${correctAnswer}.</p>
+        <p>Current Score: ${store.score} out of ${store.questions.length}</p>
         <button type="submit" id="next-question">Next</button>
       </form>
     </section>
@@ -240,6 +242,7 @@ function handleSubmitAnswerClick() {
         store.score += 1;
         store.isCorrect = true;
       }
+      store.usersAnswer = submittedAnswer; 
       store.submittingAnswer = true;
       renderQuizApp();
     }    
@@ -252,6 +255,7 @@ function handleNextQuestionClick() {
     event.preventDefault();
     store.isCorrect = false;
     store.submittingAnswer = false;
+    store.usersAnswer = "";
     if (store.questionNumber < store.questions.length) {
       store.questionNumber += 1;
     }    
