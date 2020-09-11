@@ -6,3 +6,26 @@
   * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
   *
 */
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.welcome-page, .questions-page, .submission-result, .results-page {
+  border: 3px solid #000;
+  margin: 25px;
+  padding: 20px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  float: right;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
